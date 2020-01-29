@@ -116,9 +116,9 @@ fi
 
 if [ ! -f ~/.ssh/authorized_keys ]; then
         touch ~/.ssh/authorized_keys
-        echo "- creating ~/.ssh/authorized_keys --[done]"        
+        echo "- creating ~/.ssh/authorized_keys --[done]"
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-        echo "- appending the public keys id_rsa into authorized keys --[done]"        
+        echo "- appending the public keys id_rsa into authorized keys --[done]"
 fi
 
 
@@ -126,7 +126,7 @@ if [ ! -f ~/.ssh/config ]; then
         touch ~/.ssh/config
         echo "Host github.com" > ~/.ssh/config
         echo "StrictHostKeyChecking no" >> ~/.ssh/config
-        echo "- diabling StrictHostKeyChecking no --[done]"        
+        echo "- diabling StrictHostKeyChecking no --[done]"
 fi
 
 echo ""
@@ -220,6 +220,8 @@ sudo chown -R www-data.www-data /var/www/$APP_NAME_SHORT/bootstrap/cache
 echo "[+] Step 6 — Setting Up Nginx"
 echo ""
 
+# APPURL
+# NOTE: servername doesnot have https://
 echo "- creating a new virtual host configuration for $APP_NAME_SHORT"
 cat > /etc/nginx/sites-available/$APP_NAME_SHORT <<EOF
 server {
